@@ -2,11 +2,19 @@
     "version": 2,
     "builds": [
         {
+            "src": "assets/**",
+            "use": "@vercel/static"
+        },
+        {
             "src": "**",
             "use": "@vercel/static"
         }
     ],
     "routes": [
+        {
+            "src": "/favicon.ico",
+            "dest": "/assets/favicon.ico"
+        },
         {
             "handle": "filesystem"
         }
