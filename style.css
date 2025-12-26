@@ -2223,8 +2223,11 @@ nav {
 /* Adjust for mobile to not overlap with other potential bottom-left elements */
 @media (max-width: 480px) {
     .view-counter-fab {
+        top: auto;
         bottom: 20px;
         left: 20px;
+        right: auto;
+        transform: none;
         padding: 8px 16px;
         font-size: 0.9rem;
     }
