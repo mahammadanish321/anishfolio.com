@@ -434,50 +434,9 @@ if (testimonialsSection) {
     testimonialsSection.addEventListener('mouseleave', startTestimonialSlider);
 }
 
-// Enhanced Contact form with validation
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        playClickSound();
+// Contact form handled in email.js
+// Logic moved there to avoid conflicts and enable real EmailJS sending
 
-        const submitBtn = e.target.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-
-        // Basic validation
-        const formData = new FormData(e.target);
-        const name = formData.get('name')?.trim();
-        const email = formData.get('email')?.trim();
-        const message = formData.get('message')?.trim();
-
-        if (!name || !email || !message) {
-            showNotification('Please fill in all required fields.');
-            return;
-        }
-
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            showNotification('Please enter a valid email address.');
-            return;
-        }
-
-        // Add loading state
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-        submitBtn.disabled = true;
-
-        try {
-            // Simulate form submission
-            await new Promise(resolve => setTimeout(resolve, 2000));
-
-            showNotification('Thank you for your message! I\'ll get back to you soon.');
-            e.target.reset();
-        } catch (error) {
-            showNotification('Failed to send message. Please try again.');
-        } finally {
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-        }
-    });
-}
 
 // Enhanced scroll animations with Intersection Observer
 function handleScrollAnimations() {
