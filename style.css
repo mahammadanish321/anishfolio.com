@@ -2235,3 +2235,418 @@ nav {
         font-size: 0.9rem;
     }
 }
+
+/* ---------------------------------------- */
+/* NEW PREMIUM MOBILE REDESIGN (Overrides)  */
+/* ---------------------------------------- */
+
+@media (max-width: 768px) {
+
+    /* Mobile Navigation - Glassmorphism */
+    .nav-toggle {
+        display: flex;
+        /* Ensure it's visible */
+        z-index: 1001;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(254, 253, 251, 0.95) !important;
+        backdrop-filter: blur(25px) !important;
+        -webkit-backdrop-filter: blur(25px) !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        gap: 30px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+        left: 0 !important;
+        /* Override -100% */
+    }
+
+    [data-theme="dark"] .nav-links {
+        background: rgba(15, 23, 42, 0.95) !important;
+    }
+
+    .nav-links.active {
+        opacity: 1;
+        visibility: visible;
+        left: 0 !important;
+    }
+
+    .nav-links a {
+        font-size: 1.8rem;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+        opacity: 0;
+    }
+
+    .nav-links.active a {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .nav-links.active a:nth-child(1) {
+        transition-delay: 0.1s;
+    }
+
+    .nav-links.active a:nth-child(2) {
+        transition-delay: 0.15s;
+    }
+
+    .nav-links.active a:nth-child(3) {
+        transition-delay: 0.2s;
+    }
+
+    .nav-links.active a:nth-child(4) {
+        transition-delay: 0.25s;
+    }
+
+    .nav-links.active a:nth-child(5) {
+        transition-delay: 0.3s;
+    }
+
+    .nav-links.active a:nth-child(6) {
+        transition-delay: 0.35s;
+    }
+
+    .nav-links.active a:nth-child(7) {
+        transition-delay: 0.4s;
+    }
+
+    /* Hero Section - Mobile Redesign */
+    .hero {
+        padding: 100px 5% 40px;
+        min-height: 100vh;
+        height: auto;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    /* Force Hero Container Display */
+    .hero-container {
+        display: flex !important;
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+        padding: 0;
+        z-index: 5;
+    }
+
+    .hero-left {
+        min-height: auto;
+        order: 2;
+        text-align: left;
+    }
+
+    .hero-right {
+        order: 1;
+        height: 35vh;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+        line-height: 1.1;
+        margin-bottom: 15px;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+        max-width: 90%;
+        margin-bottom: 25px;
+    }
+
+    .hero-email {
+        margin-bottom: 20px;
+    }
+
+    /* Hide the old Experience block in Hero if needed or restyle */
+    .hero-experience {
+        position: relative;
+        margin-top: 10px;
+        bottom: auto;
+        left: auto;
+    }
+
+    .hero-badge-cert {
+        position: absolute;
+        top: 20px;
+        right: 0;
+        padding: 10px 15px;
+        font-size: 0.7rem;
+        margin: 0;
+        transform: rotate(5deg);
+    }
+
+    /* Ensure old mobile card is gone (we removed HTML but good to be safe) */
+    .mobile-name-card {
+        display: none !important;
+    }
+
+    /* Swipeable Horizontal Scroll Containers */
+    .services-grid,
+    .skills-container,
+    .contact-container {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        gap: 20px;
+        padding: 10px 5px 30px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        grid-template-columns: none !important;
+        margin: 0 -5%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .services-grid::-webkit-scrollbar,
+    .skills-container::-webkit-scrollbar,
+    .contact-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .service-card,
+    .skill-item,
+    .contact-form,
+    .contact-info {
+        flex: 0 0 85%;
+        width: 85%;
+        scroll-snap-align: center;
+        margin: 0;
+    }
+
+    .skills-content {
+        flex: 0 0 100%;
+        scroll-snap-align: start;
+        padding-right: 20px;
+    }
+
+    .skills-visual {
+        display: none !important;
+    }
+
+    /* Timeline Adjustments */
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-item {
+        flex-direction: column !important;
+        margin-left: 45px;
+        margin-bottom: 40px;
+    }
+
+    .timeline-dot {
+        left: 20px;
+        top: 25px;
+    }
+
+    .timeline-content {
+        margin: 0 !important;
+        width: 100%;
+    }
+
+    /* Portfolio Cards Mobile */
+    .portfolio-scroll {
+        padding-bottom: 30px;
+        gap: 20px;
+        margin: 0 -5%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .portfolio-card {
+        flex: 0 0 85% !important;
+        height: 420px;
+        padding: 25px;
+        margin: 0;
+    }
+
+    /* FAB Adjustments */
+    .fab-container {
+        bottom: 25px;
+        right: 25px;
+    }
+
+    .fab-options {
+        bottom: 85px;
+        right: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .service-card,
+    .portfolio-card,
+    .contact-form {
+        flex: 0 0 90% !important;
+        width: 90% !important;
+    }
+
+    .experience-number {
+        font-size: 3rem;
+    }
+
+    .scroll-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+    }
+}
+
+/* Final Mobile Hero Refinements (Face Visibility) */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.8rem !important;
+        line-height: 1.1;
+    }
+
+    .hero-description {
+        font-size: 0.9rem !important;
+        margin-bottom: 20px;
+    }
+
+    .hero-badge {
+        font-size: 0.75rem;
+        padding: 6px 14px;
+    }
+
+    .hero-badge-cert {
+        font-size: 0.6rem;
+        padding: 8px 10px;
+        top: 10px;
+        right: 5px;
+    }
+
+    /* Ensure image focus is correct */
+    .hero-background img {
+        object-position: center 20%;
+        /* Pull face up slightly if needed */
+    }
+}
+
+/* ---------------------------------------- */
+/* LIQUID GLASS EFFECT (Premium)            */
+/* ---------------------------------------- */
+
+/* Glass Utility - Can be applied to container elements */
+.liquid-glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+[data-theme='dark'] .liquid-glass {
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Apply Liquid Glass to Specific Hero Elements */
+
+/* 1. Hero Badges (Freelance & Cert) */
+.hero-badge,
+.hero-badge-cert {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    color: var(--text-primary);
+    transition: all 0.4s ease;
+    border-radius: 50px;
+    /* Enhanced Roundness */
+}
+
+/* Hover Liquid Effect */
+.hero-badge:hover,
+.hero-badge-cert:hover {
+    background: rgba(255, 255, 255, 0.25) !important;
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* 2. Experience Floating Block */
+.hero-experience {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 15px 25px;
+    /* Added padding for containment */
+}
+
+/* 3. Hero Title Liquid Gradient Text */
+.hero-title .highlight {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #60a5fa 50%, var(--accent-teal) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 2px 4px rgba(74, 139, 135, 0.2));
+    position: relative;
+    z-index: 10;
+}
+
+/* 4. Hero Email Pill */
+.hero-email {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 30px;
+    display: inline-block;
+}
+
+/* Dark Mode Adjustments */
+[data-theme='dark'] .hero-badge,
+[data-theme='dark'] .hero-badge-cert,
+[data-theme='dark'] .hero-experience,
+[data-theme='dark'] .hero-email {
+    background: rgba(15, 23, 42, 0.6) !important;
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .hero-badge:hover,
+[data-theme='dark'] .hero-badge-cert:hover {
+    background: rgba(30, 41, 59, 0.8) !important;
+    border-color: rgba(74, 139, 135, 0.4);
+}
+
+/* Mobile Specific Liquid Adjustments */
+@media (max-width: 768px) {
+
+    .hero-badge,
+    .hero-badge-cert {
+        backdrop-filter: blur(20px);
+        /* Enhance blur on mobile */
+        border-color: rgba(255, 255, 255, 0.35);
+        /* More visible border */
+    }
+}
